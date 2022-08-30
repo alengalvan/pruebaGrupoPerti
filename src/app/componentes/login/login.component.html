@@ -1,0 +1,31 @@
+<section>
+  <div class="curve"></div>
+</section>
+
+<div class="login-container">
+  <form [formGroup]="formLogin">
+    <ion-item>
+      <ion-label position="floating">Usuario</ion-label>
+      <ion-input formControlName="usuario"></ion-input>
+    </ion-item>
+    <br><br>
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input formControlName="contrasenia"></ion-input>
+    </ion-item>
+    <br>
+    <p class="ion-text-center">
+      <ion-button (click)="iniciarSesion()" [disabled]="!formLogin.valid" >Iniciar sesión</ion-button>
+    </p>
+    <br>
+    <div class="ion-text-center">
+      <span class="link" (click)="irCrearCuenta()">Crea una nueva cuenta</span>  
+    </div>
+   
+  </form>    
+</div>
+
+
+
+
+

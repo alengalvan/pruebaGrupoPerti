@@ -1,0 +1,34 @@
+<ion-content>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="end">
+      <button ion-button icon-only color='black' (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Detalle pokemón</ion-title>
+  </ion-toolbar>
+  
+  <ion-card>
+    <ion-item>
+      <span>Nombre Pokemon:</span><br> &nbsp;
+      <ion-label>{{pokemon.name}}</ion-label>
+    </ion-item>
+
+    <ion-item>
+      <span>Experiencia:</span><br> &nbsp;
+      <ion-label>{{pokemon.base_experience}}</ion-label>
+    </ion-item>
+  
+    <ion-item>
+      <span>Altura:</span><br> &nbsp;
+      <ion-label>{{pokemon.height}}</ion-label>
+    </ion-item>
+  
+    <ion-item>
+      <span>Peso:</span><br> &nbsp;
+      <ion-label>{{pokemon.weight}}</ion-label>
+    </ion-item>
+  
+  </ion-card>
+
+</ion-content>

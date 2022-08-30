@@ -1,0 +1,66 @@
+
+
+<div class="login-container">
+    
+    <div class="ion-text-center">
+        <span>Crea tu cuenta</span>
+    </div>
+
+    <br>
+
+    <form [formGroup]="formregistro">
+
+     <ion-item>
+        <ion-label position="floating">Nombre completo</ion-label>
+        <ion-input formControlName="nombreCompleto"></ion-input>
+      </ion-item>
+      <div *ngFor="let error of mensajesValidacion.nombreCompleto">
+        <ng-container *ngIf="nombreCompleto.hasError(error.type) && (nombreCompleto.dirty || nombreCompleto.touched)">
+          <small style="color: red;">{{error.message}}</small>
+        </ng-container>
+      </div>
+      <br><br>
+
+      <ion-item>
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input formControlName="usuario"></ion-input>
+      </ion-item>
+      <div *ngFor="let error of mensajesValidacion.usuario">
+        <ng-container *ngIf="usuario.hasError(error.type) && (usuario.dirty || usuario.touched)">
+          <small style="color: red;">{{error.message}}</small>
+        </ng-container>
+      </div>
+
+      <br><br>
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input formControlName="contrasenia"></ion-input>
+      </ion-item>
+      <div *ngFor="let error of mensajesValidacion.contrasenia">
+        <ng-container *ngIf="contrasenia.hasError(error.type) && (contrasenia.dirty || contrasenia.touched)">
+          <small style="color: red;">{{error.message}}</small>
+        </ng-container>
+      </div>
+      <br><br>
+      
+      <ion-item> 
+        <!-- <ion-label>MM DD YY</ion-label>
+        <ion-datetime displayFormat="MM DD YY" placeholder="Selecciona la fecha" formControlName="fechaRegistro"></ion-datetime> -->
+        <ion-label position="floating">Fecha de registro</ion-label>
+        <ion-input formControlName="fechaRegistro"  (click)="showDatepicker()"></ion-input>
+       </ion-item>
+
+      <div *ngFor="let error of mensajesValidacion.fechaRegistro">
+        <ng-container *ngIf="fechaRegistro.hasError(error.type) && (fechaRegistro.dirty || fechaRegistro.touched)">
+          <small style="color: red;">{{error.message}}</small>
+        </ng-container>
+      </div>
+      <br>
+      <p class="ion-text-center">
+        <ion-button (click)="crearCuenta()">Crea nueva cuenta</ion-button>
+      </p>
+    </form>    
+  </div>
+
+
+  
