@@ -14,11 +14,12 @@ import { HomeComponent } from './componentes/home/home.component';
 import { NuevaCuentaComponent } from './componentes/nueva-cuenta/nueva-cuenta.component';
 import { DetallePokemonComponent } from './componentes/detalle-pokemon/detalle-pokemon.component';
 import { DatePicker } from '@ionic-native/date-picker/ngx';
+import { LocalNotifications } from '@awesome-cordova-plugins/local-notifications/ngx';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, HomeComponent, NuevaCuentaComponent, DetallePokemonComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule, CommonModule], 
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, DatePicker],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, DatePicker, LocalNotifications],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { NavController } from '@ionic/angular';
+import { UtilitiesService } from 'src/app/services/utilities.service';
 import { WebClientService } from 'src/app/services/web-cliente.service';
 
 @Component({
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder,  
     private navCtrl: NavController,
-    public WebClientService: WebClientService) { }
+    public WebClientService: WebClientService, public utilitiesService: UtilitiesService) { }
 
   ngOnInit() {
 
@@ -47,7 +48,9 @@ export class LoginComponent implements OnInit {
       this.formLogin.controls.usuario.value.trim() == this.usuarioGuardadoLocal.usuario){
         console.log("pasamos la validación")
         this.navCtrl.navigateForward("home")
+        this.utilitiesService.notificacion("Sesión iniciada correctamente!")
       }else{
+        this.utilitiesService.notificacion("Sesión no iniciada, comprueba tu información")
         console.log("no cumplimos la validacion")
       }
   }

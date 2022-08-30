@@ -5,7 +5,6 @@ import { WebClientService } from 'src/app/services/web-cliente.service';
 import { map } from 'rxjs/operators';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 import { DatePicker } from '@ionic-native/date-picker/ngx';
-
 @Component({
   selector: 'app-nueva-cuenta',
   templateUrl: './nueva-cuenta.component.html',
@@ -89,6 +88,7 @@ export class NuevaCuentaComponent implements OnInit {
     console.log(usuario)
     localStorage.setItem("usuario", JSON.stringify(usuario))
     this.navCtrl.navigateForward("login")
+    this.utilitiesService.notificacion("Cuenta creada correctamente!")
   }
 
 
@@ -107,7 +107,5 @@ export class NuevaCuentaComponent implements OnInit {
       err => console.log('Error occurred while getting date: ', err)
     );
   }
-
-
 
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AlertController, LoadingController, NavController, ToastController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 import { DetallePokemonComponent } from '../componentes/detalle-pokemon/detalle-pokemon.component';
+import { LocalNotifications } from '@awesome-cordova-plugins/local-notifications/ngx';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,8 @@ export class UtilitiesService {
     private alertCtrl: AlertController,
     private toastController: ToastController,
     private loadingController: LoadingController, 
-    public modalController: ModalController) { }
+    public modalController: ModalController,
+    private localNotifications: LocalNotifications) { }
 
   //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   public async alert(title: string, message: string, nombreBoton?: string) {
@@ -62,5 +64,14 @@ export class UtilitiesService {
       backdropDismiss: false,
     });
     return await modal.present();
+  }
+
+  //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  notificacion(mensaje: string) {
+    this.localNotifications.schedule({
+      id: 1,
+      text: mensaje,
+      data: { secret: 'secret' }
+    });
   }
 }
